@@ -9,17 +9,26 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_produtos")
-public class Produto {
+public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "cod_produto", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "cod_produto")
     private long codProduto;
     @Column(name = "nome_produto", nullable = false)
-    private String NomeProduto;
+    private String nomeProduto;
     @Column(name = "desc_produto")
-    private String DescProduto;
-    @Column(name = "preco_produto", nullable = false)
-    private float PrecoProduto;
+    private String descProduto;
+    @Column(name = "preco_produto")
+    private float precoProduto;
+
+    public Product() {
+    }
+
+    public Product(String nomeProduto, String descProduto, float precoProduto) {
+        this.nomeProduto = nomeProduto;
+        this.descProduto = descProduto;
+        this.precoProduto = precoProduto;
+    }
 
     public long getCodProduto() {
         return codProduto;
@@ -30,27 +39,29 @@ public class Produto {
     }
 
     public String getNomeProduto() {
-        return NomeProduto;
+        return nomeProduto;
     }
 
     public void setNomeProduto(String nomeProduto) {
-        NomeProduto = nomeProduto;
+        this.nomeProduto = nomeProduto;
     }
 
     public String getDescProduto() {
-        return DescProduto;
+        return descProduto;
     }
 
     public void setDescProduto(String descProduto) {
-        DescProduto = descProduto;
+        this.descProduto = descProduto;
     }
 
     public float getPrecoProduto() {
-        return PrecoProduto;
+        return precoProduto+1;
     }
 
     public void setPrecoProduto(float precoProduto) {
-        PrecoProduto = precoProduto;
+        this.precoProduto = precoProduto;
     }
+
+  
 
 }
